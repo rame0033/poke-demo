@@ -33,21 +33,23 @@ function GalleryItemImage (props) {
 }
 
 function Gallery () {
-  const [items, setItems] = React.useState(pokedex)
+  const [items, setItems] = React.useState(pokedex) // initial state
   
   function clickHandler (target) {
-    setItems(items.map(item => item.id === target.id ? {...item, caught: !item.caught} : item))
+    setItems(items.map(item => item.id === target.id ? {...item, caught: !item.caught} : item)) // If clicked item, toggle caught status
   }
 
+   // This return statement renders a gallery of items. Each item is displayed as a div with a conditional class based on whether it is caught or not. 
+  // The div contains an image component and a heading with the item's name. The clickHandler function is called when an item is clicked.
   return (
-    <div id="gallery" className="gallery">
-      {items.map(item => (
-        <div key={item.id} className={item.caught ? "gallery-item caught" : "gallery-item"} onClick={() => clickHandler(item)}>
-          <GalleryItemImage item={item} />
-          <h2 className="gallery-item-name">{item.name}</h2>
-        </div>))}
-    </div>
-  )
+      <div id="gallery" className="gallery">
+        {items.map(item => (
+          <div key={item.id} className={item.caught ? "gallery-item caught" : "gallery-item"} onClick={() => clickHandler(item)}>
+            <GalleryItemImage item={item} />
+            <h2 className="gallery-item-name">{item.name}</h2>
+          </div>))}
+      </div>
+    )
 }
 
 function App () {
