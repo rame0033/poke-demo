@@ -1,2 +1,2 @@
-# poke-demo
-2nd demo for data management
+# mtm6404-pokemon-gallery
+This repository contains the starter files for the Pokemon Gallery project
